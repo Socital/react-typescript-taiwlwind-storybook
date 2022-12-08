@@ -1,15 +1,15 @@
-import { Soc } from './types'
+import { Webapp } from './types'
 
 declare let process: {
     env: {
         PRODUCTION: string
         API_ENDPOINT: string
         LOG_REMOTE_URL: string
-        LOG_LEVEL: Soc.LogLevels
+        LOG_LEVEL: Webapp.LogLevels
     }
 }
 
-const c: Soc.Config = {
+const c: Webapp.Config = {
     api: process.env.API_ENDPOINT,
     development: process.env.PRODUCTION !== 'true',
     log: {

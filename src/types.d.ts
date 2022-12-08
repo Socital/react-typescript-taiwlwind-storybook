@@ -1,4 +1,4 @@
-export namespace Soc {
+export namespace Webapp {
     export type LogLevels = 'info' | 'warn' | 'debug' | 'fatal' | 'error'
     export type Config = {
         api: string

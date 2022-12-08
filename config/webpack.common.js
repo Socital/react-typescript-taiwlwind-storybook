@@ -9,6 +9,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin') // extract css t
 const tailwindcss = require('tailwindcss')
 const autoprefixer = require('autoprefixer') // help tailwindcss to work
 const Dotenv = require('dotenv-webpack')
+const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 
 /**
  * Webpack entrypoint to start building the bundle
@@ -23,7 +24,8 @@ const entry = [paths.src + '/index.tsx']
 const output = {
     path: paths.build,
     filename: '[name].bundle.js',
-    publicPath: '/'
+    publicPath: '/',
+    hashFunction: 'sha256'
 }
 
 /**
@@ -53,13 +55,15 @@ const generateHtmlFromTemplate = new HtmlWebpackPlugin({
     filename: 'index.html' // output file
 })
 const dotEnv = new Dotenv({ path: process.env.NODE_ENV !== 'production' ? './config/.env' : './config/.env.production' })
+const typescriptTypeChecker = new ForkTsCheckerWebpackPlugin()
 
 const plugins = [
     cleanBuildFolder,
     extractCssToSeparateFiles,
     copyAssets,
     generateHtmlFromTemplate,
-    dotEnv
+    dotEnv,
+    typescriptTypeChecker
 ]
 
 /**

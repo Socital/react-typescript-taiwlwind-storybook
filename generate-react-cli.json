@@ -8,15 +8,13 @@
       "path": "src/components",
       "withStyle": true,
       "withTest": true,
-      "withStory": true,
-      "withLazy": true,
       "customTemplates": {
-        "lazy": "config/templates/TemplateName.lazy.tsx",
         "style": "config/templates/TemplateName.module.scss",
-        "story": "config/templates/TemplateName.stories.tsx",
         "test": "config/templates/TemplateName.test.tsx",
         "component": "config/templates/TemplateName.tsx"
-      }
+      },
+      "withStory": false,
+      "withLazy": false
     }
   }
 }
