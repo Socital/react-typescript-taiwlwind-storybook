@@ -5,10 +5,12 @@ type TemplateNameProps = {
     test?: string
 }
 
-const TemplateName = (props: TemplateNameProps) => (
-    <div className={styles.Sample} data-testid="TemplateName">
-        TemplateName Component
-    </div>
-)
+const TemplateName = (props: TemplateNameProps) => {
+    return (
+        <div className={styles.Sample} data-testid="TemplateName">
+            TemplateName Component
+        </div>
+    )
+}
 
 export default TemplateName

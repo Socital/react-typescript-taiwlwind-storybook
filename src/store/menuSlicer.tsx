@@ -12,18 +12,13 @@ export type menuState = { items: IMenuItem[] }
 
 export const initialState: menuState = {
     items: [
-        { value: 'Αρχική', icon: <span></span>, path: '/home' },
-        { value: 'Ομάδες', icon: <span></span>, path: '/groups' },
-        { value: 'Θαλαμοι', icon: <span></span>, path: '/rooms' },
-        { value: 'Λόχοι', icon: <span></span>, path: '/troops' },
-        { value: 'Προπαιδευόμενοι', icon: <span></span>, path: '/recruits' },
-        { value: 'Προπαιδευτές', icon: <span></span>, path: '/trainers' },
-        { value: 'ΕΣΣΟ', icon: <span></span>, path: '/trainingDivisions' }
+        { value: 'Home', icon: '', path: '/home' },
+        { value: 'Samples', icon: '', path: '/samples' }
     ]
 }
 
 export const menuSlicer = createSlice({
-    name: 'recruits',
+    name: 'menu',
     initialState,
     reducers: {}
 })

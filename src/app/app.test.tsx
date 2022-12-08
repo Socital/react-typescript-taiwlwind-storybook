@@ -4,10 +4,16 @@ import '@testing-library/jest-dom/extend-expect'
 import '@testing-library/jest-dom'
 
 import App from './app'
+import {store} from '../store/store'
+import {Provider} from 'react-redux'
 
 describe('<App/>', () => {
     test('it should mount', () => {
-        render(<App/>)
+        render(
+            <Provider store={store}>
+                <App></App>
+            </Provider>
+        )
 
         const app = screen.getByTestId('App')
 
