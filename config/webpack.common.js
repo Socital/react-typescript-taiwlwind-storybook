@@ -9,7 +9,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin') // extract css t
 const tailwindcss = require('tailwindcss')
 const autoprefixer = require('autoprefixer') // help tailwindcss to work
 const Dotenv = require('dotenv-webpack')
-const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
+const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
 
 /**
  * Webpack entrypoint to start building the bundle
