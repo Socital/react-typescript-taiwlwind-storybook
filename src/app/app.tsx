@@ -11,9 +11,9 @@ const App = (): JSX.Element => {
         return <NavLink className='mr-2' key={item.value} to={item.path} style={({ isActive }) => isActive ? { color: 'black' } : { color: 'gray' }}>{item.value}</NavLink>
     })
     return (
-        <div className='flex items-center justify-center h-screen text-5xl' data-testid="App">
+        <div className='flex flex-col items-center justify-center h-screen text-5xl' data-testid="App">
             <Router>
-                <div> { menuItems } </div>
+                <div className='mb-4'> { menuItems } </div>
                 <Routes>
                     <Route element={<div/>} path="/home" />
                     <Route element={<Sample/>} path="/samples" />
