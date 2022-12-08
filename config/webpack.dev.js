@@ -7,6 +7,11 @@ const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin'
 const devServer = {
     historyApiFallback: true,
     static: paths.build,
+    client: {
+        overlay: {
+            warnings: false
+        }
+    },
     open: false,
     compress: true,
     hot: true,

@@ -10,6 +10,7 @@ const tailwindcss = require('tailwindcss')
 const autoprefixer = require('autoprefixer') // help tailwindcss to work
 const Dotenv = require('dotenv-webpack')
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
+const EslintPlugin = require('eslint-webpack-plugin')
 
 /**
  * Webpack entrypoint to start building the bundle
@@ -56,6 +57,15 @@ const generateHtmlFromTemplate = new HtmlWebpackPlugin({
 })
 const dotEnv = new Dotenv({ path: process.env.NODE_ENV !== 'production' ? './config/.env' : './config/.env.production' })
 const typescriptTypeChecker = new ForkTsCheckerWebpackPlugin()
+const eslintLoader = {
+    enforce: 'pre',
+    test: /\.(tsx|ts)$/,
+    exclude: /node_modules/,
+    use: [{ loader: 'eslint-loader', options: { configFile: paths.root + '/.eslintrc.json' } }]
+}
+const ESLintPlugin = new EslintPlugin({
+    extensions: ['tsx', 'ts']
+})
 
 const plugins = [
     cleanBuildFolder,
@@ -63,19 +73,15 @@ const plugins = [
     copyAssets,
     generateHtmlFromTemplate,
     dotEnv,
-    typescriptTypeChecker
+    typescriptTypeChecker,
+    ESLintPlugin
 ]
 
 /**
  * Loaders
  */
 
-const eslintLoader = {
-    enforce: 'pre',
-    test: /\.(tsx|ts)$/,
-    exclude: /node_modules/,
-    use: [{ loader: 'eslint-loader', options: { configFile: paths.root + '/.eslintrc.json' } }]
-}
+
 const transpileTypescript = { test: /\.(tsx|ts)$/, exclude: /node_modules/, use: ['babel-loader'] }
 const loadStyles = {
     test: /\.(css|scss|sass)$/,
@@ -104,7 +110,7 @@ const rules = [
     loadSVGs,
     copyImagesToBuildFolder,
     inlineFontsAndSVGs,
-    eslintLoader
+    // eslintLoader
 ]
 
 module.exports = {

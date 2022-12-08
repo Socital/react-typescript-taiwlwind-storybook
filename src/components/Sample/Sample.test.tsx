@@ -5,7 +5,7 @@ import Sample from './Sample'
 
 describe('<Sample />', () => {
     test('it should mount', () => {
-        render(<Sample />)
+        render(<Sample> Hey </Sample>)
     
         const sample = screen.getByTestId('Sample')
 

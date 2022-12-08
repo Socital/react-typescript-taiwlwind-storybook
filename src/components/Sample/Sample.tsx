@@ -1,9 +1,13 @@
 import React from 'react'
 import styles from './Sample.module.scss'
 
-const Sample = () => (
+type SampleProps = {
+    children: React.ReactNode
+}
+
+const Sample = (props: SampleProps) => (
     <div className={styles.Sample} data-testid="Sample">
-    Sample Component
+        { props.children }
     </div>
 )
 
